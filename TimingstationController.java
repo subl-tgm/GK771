@@ -1,6 +1,7 @@
 package sectionpark.timingstation;
 
 import org.springframework.web.bind.annotation.RestController;
+
 import org.springframework.http.MediaType;
 import sectionpark.model.TimingstationData;
 

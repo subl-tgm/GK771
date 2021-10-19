@@ -1,6 +1,7 @@
 package sectionpark.timingstation;
 
 import org.springframework.stereotype.Service;
+
 import sectionpark.model.TimingstationData;
 
 @Service
