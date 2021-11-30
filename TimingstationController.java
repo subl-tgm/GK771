@@ -20,6 +20,7 @@ public class TimingstationController {
     	String mainPage = "This is the timingstation application! (DEZSYS_MARATHON_REST) <br/><br/>" +
                           "<a href='http://localhost:8080/timingstation/001/data'>Link to timingstation/001/data</a><br/>" +
                           "<a href='http://localhost:8080/timingstation/001/xml'>Link to timingstation/001/xml</a><br/>" +
+                          "<a href='http://localhost:8080/timingstation/001/consumer'>Link to timingstation/001/consumer</a><br/>" +
                           "<a href='http://localhost:8080/timingstation/001/transfer'>Link to timingstation/001/transfer</a><br/>";
         return mainPage;
     }
@@ -27,6 +28,7 @@ public class TimingstationController {
     @RequestMapping(value="/timingstation/{timingstationID}/data", produces = MediaType.APPLICATION_JSON_VALUE)
     public TimingstationData timingstationData( @PathVariable String timingstationID ) {
         return service.getTimingstationData( timingstationID );
+        //Diese Daten sollen sich beim Refreshen erweitern
     }
 
     @RequestMapping(value="/timingstation/{timingstationID}/xml",  produces = MediaType.APPLICATION_XML_VALUE)
@@ -34,11 +36,13 @@ public class TimingstationController {
         return service.getTimingstationData( timingstationID );
     } 
 
+    @RequestMapping(value="/timingstation/{timingstationID}/consumer",  produces = MediaType.TEXT_HTML_VALUE)
+    public String timingstationConsumer( @PathVariable String timingstationID ){
+        return service.getHTMLData( timingstationID );
+    }
+
     @RequestMapping("/timingstation/{timingstationID}/transfer")
     public String timingstationTransfer( @PathVariable String timingstationID ) {
         return service.getGreetings("Timingstation.Transfer!");
-    }
-
-
-    
+    } 
 }

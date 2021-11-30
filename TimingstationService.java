@@ -18,4 +18,11 @@ public class TimingstationService {
         
     }
     
+    public String getHTMLData( String inTimingstationID ) {
+    	
+    	TimingstationSimulation simulation = new TimingstationSimulation();
+        TimingstationData td = simulation.getData( inTimingstationID );
+        return simulation.htmlDaten( td );
+        
+    }
 }
